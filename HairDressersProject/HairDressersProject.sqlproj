@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>HairDressersProject</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{b274c516-4083-4f33-8530-757620b0f9bb}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath />
+    <RootNamespace>HairDressersProject</RootNamespace>
+    <AssemblyName>HairDressersProject</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="Tables" />
+    <Folder Include="Views" />
+    <Folder Include="stored procedure" />
+    <Folder Include="script" />
+    <Folder Include="stored procedure\Avis" />
+    <Folder Include="stored procedure\CategoryPrestation" />
+    <Folder Include="stored procedure\Image" />
+    <Folder Include="stored procedure\Prestation" />
+    <Folder Include="stored procedure\ProfessionnalCategory" />
+    <Folder Include="stored procedure\RDVCLientProfessionnal" />
+    <Folder Include="stored procedure\User" />
+    <Folder Include="fonctions scalaires" />
+    <Folder Include="stored procedure\Comment" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Tables\ProfessionnalCategory.sql" />
+    <Build Include="Tables\User.sql" />
+    <Build Include="Tables\Avis.sql" />
+    <Build Include="Tables\Image.sql" />
+    <Build Include="Tables\CategoryPrestation.sql" />
+    <Build Include="Tables\Prestation.sql" />
+    <Build Include="Tables\RDVClientProfessionnel.sql" />
+    <Build Include="Tables\Comment.sql" />
+    <Build Include="Tables\UserComment.sql" />
+    <Build Include="Tables\Message.sql" />
+    <Build Include="fonctions scalaires\HDP_GetPostSalt.sql" />
+    <Build Include="fonctions scalaires\HDP_GetPreSalt.sql" />
+    <Build Include="stored procedure\User\HDP_RegisterUser.sql" />
+    <Build Include="stored procedure\User\HDP_UpdateUser.sql" />
+    <Build Include="stored procedure\User\HDP_UnlockUser.sql" />
+    <Build Include="stored procedure\ProfessionnalCategory\HDP_AddProfessionnalCategory.sql" />
+    <Build Include="stored procedure\Avis\HDP_AddAvis.sql" />
+    <Build Include="stored procedure\Avis\HDP_UpdateAvis.sql" />
+    <Build Include="stored procedure\Avis\HDP_DeleteAvis.sql" />
+    <Build Include="stored procedure\Comment\HDP_AddComment.sql" />
+    <Build Include="stored procedure\Comment\HDP_UpdateComment.sql" />
+    <Build Include="stored procedure\Avis\HDP_DeleteComment.sql" />
+    <Build Include="stored procedure\User\HDP_AuthUser.sql" />
+    <Build Include="stored procedure\User\HDP_LockUser.sql" />
+    <Build Include="stored procedure\ProfessionnalCategory\HDP_UpdateProfessionnalCategory.sql" />
+    <Build Include="stored procedure\ProfessionnalCategory\HDP_DeleteProfessionnalCategory.sql" />
+    <Build Include="stored procedure\Image\HDP_DeleteImage.sql" />
+    <Build Include="stored procedure\Image\HDP_AddImage.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="HairDressersProject.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="script\Script.PostDeploymentDatabase.sql" />
+  </ItemGroup>
+</Project>
