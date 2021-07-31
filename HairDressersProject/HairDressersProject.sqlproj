@@ -97,6 +97,14 @@
     <Build Include="stored procedure\ProfessionnalCategory\HDP_DeleteProfessionnalCategory.sql" />
     <Build Include="stored procedure\Image\HDP_DeleteImage.sql" />
     <Build Include="stored procedure\Image\HDP_AddImage.sql" />
+    <Build Include="stored procedure\User\HDP_ALLAvisAndCommentByProfessionnal.sql" />
+    <Build Include="Views\HDR_ProfessionnalByCategory.sql" />
+    <Build Include="stored procedure\User\HDR_GetProfessionnalByCategory.sql" />
+    <Build Include="stored procedure\User\HDP_EmailExists.sql" />
+    <Build Include="stored procedure\User\HDP_PseudoExists.sql" />
+    <Build Include="stored procedure\User\HDP_GetUser.sql" />
+    <Build Include="Views\HDR_GetAllUser.sql" />
+    <Build Include="stored procedure\User\HDP_GetUserByFirstnameAndLastname.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="HairDressersProject.refactorlog" />
