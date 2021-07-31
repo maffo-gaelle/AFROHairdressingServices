@@ -9,10 +9,11 @@ namespace HairdressingServices.Api.Models.Global.Repositories
 {
     public interface IAvisRepository
     {
-        Avis Get(int userid, int id);
-        IEnumerable<Avis> GetAvisByProfessionnal(int userId, int professionnalId);
+        Avis Get(int id);
+        IEnumerable<Avis> GetAllAvisByProfessionnal(int professionnalId);
         void Insert(Avis avis);
-        void UpdateAvis(int userid, int id);
-        int AverageStarsAvis(int professionnalId);
+        void Update(Avis avis);
+        IEnumerable<Comment> GetAllCommentByAvis(int id);
+
     }
 }

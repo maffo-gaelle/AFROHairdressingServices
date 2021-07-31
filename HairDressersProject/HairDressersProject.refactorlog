@@ -210,4 +210,18 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="PicturePath" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="f9575b1d-9f2e-41f9-bf5e-0f4e5d5c6d7f" ChangeDateTime="07/31/2021 05:45:12">
+    <Property Name="ElementName" Value="[dbo].[UserCategoryProfessionnal].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[UserCategoryProfessionnal]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IdUser" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="840eab8f-0981-4644-9acf-f6e8908712cb" ChangeDateTime="07/31/2021 05:45:50">
+    <Property Name="ElementName" Value="[dbo].[UserCategoryProfessionnal].[IdCategoryProfessionnal]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[UserCategoryProfessionnal]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IdProfessionnalCategory" />
+  </Operation>
 </Operations>

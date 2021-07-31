@@ -78,21 +78,9 @@ namespace HairdressingServices.Api.Models.Global.Mappers
             {
                 Id = (int)dataRecord["Id"],
                 Content = (string)dataRecord["Content"],
-                IdAvis = (int)dataRecord["IdAvis"]
-            };
-        }
+                IdAvis = (int)dataRecord["IdAvis"],
+                UserId = (int)dataRecord["UserId"]
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="dataRecord"></param>
-        /// <returns></returns>
-        internal static UserComment ToUserComment(this IDataRecord dataRecord)
-        {
-            return new UserComment()
-            {
-                IdComment = (int)dataRecord["IdComment"],
-                IdUser = (int)dataRecord["IdUser"]
             };
         }
 

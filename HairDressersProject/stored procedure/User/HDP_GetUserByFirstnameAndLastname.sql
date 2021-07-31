@@ -3,5 +3,6 @@
 	@Firstname VARCHAR(50)
 AS
 BEGIN
-	Select * from [User] Where Firstname =  @Lastname and Lastname = @Firstname
+	Select [Id], Lastname, Firstname, Pseudo, Email, [Role], BirthDate, [Status] from [User] Where Firstname = @Firstname  and Lastname = @Lastname
+	RETURN 0
 END

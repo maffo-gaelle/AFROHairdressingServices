@@ -71,12 +71,10 @@ namespace HairdressingServices.Tools
         {
             using (DbConnection dbConnection = CreateConnection())
             {
-                using (DbCommand dbCommand = CreateCommand(command, dbConnection))
-                {
-                    dbConnection.Open();
-                    object o = dbCommand.ExecuteScalar();
-                    return o is DBNull ? null : o;
-                }
+                using DbCommand dbCommand = CreateCommand(command, dbConnection);
+                dbConnection.Open();
+                object o = dbCommand.ExecuteScalar();
+                return o is DBNull ? null : o;
             }
         }
 
@@ -91,13 +89,11 @@ namespace HairdressingServices.Tools
             {
                 using (DbCommand dbCommand = CreateCommand(command, dbConnection))
                 {
-                    using (DbDataAdapter dbDataAdapter = _providerFactory.CreateDataAdapter())
-                    {
-                        dbDataAdapter.SelectCommand = dbCommand;
-                        DataTable dataTable = new DataTable();
-                        dbDataAdapter.Fill(dataTable);
-                        return dataTable;
-                    }
+                    using DbDataAdapter dbDataAdapter = _providerFactory.CreateDataAdapter();
+                    dbDataAdapter.SelectCommand = dbCommand;
+                    DataTable dataTable = new DataTable();
+                    dbDataAdapter.Fill(dataTable);
+                    return dataTable;
                 }
             }
         }

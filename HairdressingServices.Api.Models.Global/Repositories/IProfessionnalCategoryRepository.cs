@@ -12,10 +12,10 @@ namespace HairdressingServices.Api.Models.Global.Repositories
         ProfessionnalCategory Get(int Id);
         ProfessionnalCategory GetProfessionnalCategoryByName(string name);
         IEnumerable<ProfessionnalCategory> GetAll();
-        void Insert(ProfessionnalCategory category);
-        void Update(int userid, ProfessionnalCategory category);
-        void Delete(int userid, int id);
-
+        void Add(string name);
+        void Update(ProfessionnalCategory category);
+        void Delete(int id);
+        IEnumerable<User> GetUsersByProfessionnalCategory(int categoryId);
 
     }
 }

@@ -17,11 +17,15 @@ namespace HairdressingServices.Api.Models.Global.Repositories
         User GetUserByPseudo(string pseudo);
         User GetUserByEmail(string email);
         User GetUserByFirstnameAndLastName(string firstname, string lastname);
+        IEnumerable<ProfessionnalCategory> AllProfessionnalCategoryOfUser(int Id);
         IEnumerable<User> GetAllUser();
-        IEnumerable<User> GetAllUserType(int role);
-        IEnumerable<User> GetUserByProfessionnalCategory(int categoryId);
+        IEnumerable<User> GetAllProfessionnalUsersOrMemberUsers(int role);
         bool Update(int id, User user);
         void Delete(int id);
+        void ActiveUser(int id);
+        int AverageStarsAvisByProfessionnal(int professionnalId);
+        int CountAvisByProfessionnal(int professionnalId);
+        IEnumerable<Avis> GetAllAvisByProfessionnal(int professionnalId);
 
     }
 }

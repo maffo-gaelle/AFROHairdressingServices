@@ -11,6 +11,7 @@ namespace HairdressingServices.Api.Models.Global.Repositories
     {
         Comment Get(int id);
         IEnumerable<Comment> GetCommentByAvis(int AvisId);
+        User GetUserComment(Comment comment);
         void Insert(Comment comment);
         void Update(int id, Comment comment);
         void Delete(int userId, int id);

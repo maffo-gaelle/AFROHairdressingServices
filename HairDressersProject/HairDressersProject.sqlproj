@@ -67,6 +67,7 @@
     <Folder Include="stored procedure\User" />
     <Folder Include="fonctions scalaires" />
     <Folder Include="stored procedure\Comment" />
+    <Folder Include="stored procedure\UserCategoryProfessionnal" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\ProfessionnalCategory.sql" />
@@ -77,7 +78,6 @@
     <Build Include="Tables\Prestation.sql" />
     <Build Include="Tables\RDVClientProfessionnel.sql" />
     <Build Include="Tables\Comment.sql" />
-    <Build Include="Tables\UserComment.sql" />
     <Build Include="Tables\Message.sql" />
     <Build Include="fonctions scalaires\HDP_GetPostSalt.sql" />
     <Build Include="fonctions scalaires\HDP_GetPreSalt.sql" />
@@ -99,12 +99,25 @@
     <Build Include="stored procedure\Image\HDP_AddImage.sql" />
     <Build Include="stored procedure\User\HDP_ALLAvisAndCommentByProfessionnal.sql" />
     <Build Include="Views\HDR_ProfessionnalByCategory.sql" />
-    <Build Include="stored procedure\User\HDR_GetProfessionnalByCategory.sql" />
     <Build Include="stored procedure\User\HDP_EmailExists.sql" />
     <Build Include="stored procedure\User\HDP_PseudoExists.sql" />
     <Build Include="stored procedure\User\HDP_GetUser.sql" />
     <Build Include="Views\HDR_GetAllUser.sql" />
     <Build Include="stored procedure\User\HDP_GetUserByFirstnameAndLastname.sql" />
+    <Build Include="Tables\UserCategoryProfessionnal.sql" />
+    <Build Include="stored procedure\UserCategoryProfessionnal\HDP_GetProfessionnalCategoryNameById.sql" />
+    <Build Include="stored procedure\User\HDP_AllCategoryProfessionnalByUser.sql" />
+    <Build Include="stored procedure\UserCategoryProfessionnal\HDP_GetUsersByProfessionnalCategory.sql" />
+    <Build Include="stored procedure\User\HDP_GetAllProfessionnalUsersOrMemberUsers.sql" />
+    <Build Include="Views\HDP_AllProfessionnalCategories.sql" />
+    <Build Include="stored procedure\ProfessionnalCategory\HDP_GetProfessionnalCategoryByName.sql" />
+    <Build Include="stored procedure\User\HDP_GetAllAvisByProfessionnalUser.sql" />
+    <Build Include="stored procedure\Avis\HDP_GetAllCommentsByAvis.sql" />
+    <Build Include="stored procedure\Avis\HDP_GetAvis.sql" />
+    <Build Include="stored procedure\User\HDP_AverageStarsByProfessionnal.sql" />
+    <Build Include="stored procedure\User\HDP_CountAvisByProfessionnal.sql" />
+    <Build Include="stored procedure\Comment\HDP_RemoveComment.sql" />
+    <Build Include="stored procedure\Comment\HDP_UserByCommentId.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="HairDressersProject.refactorlog" />

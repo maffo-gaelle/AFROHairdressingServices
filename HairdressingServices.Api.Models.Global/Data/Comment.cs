@@ -11,5 +11,7 @@ namespace HairdressingServices.Api.Models.Global.Data
         public int Id { get; set; }
         public string Content { get; set; }
         public int IdAvis { get; set; }
+        public int UserId { get; set; }
+
     }
 }

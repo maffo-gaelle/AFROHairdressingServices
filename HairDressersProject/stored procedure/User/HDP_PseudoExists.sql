@@ -3,4 +3,5 @@
 AS
 BEGIN
 	Select Count(*) From [User] where Pseudo = @Pseudo
+	RETURN 0
 END

@@ -5,7 +5,5 @@
 	@UserIdMember int,
 	@Timestamp datetime2(7)
 AS
-BEGIN
 	INSERT INTO [Avis] (Content, Star, UserIdProfessionnal, UserIdMember, [Timestamp]) VALUES (@Content, @Star, @UserIdProfessionnal, @UserIdMember, @Timestamp)
-	RETURN 0
-END
+GO

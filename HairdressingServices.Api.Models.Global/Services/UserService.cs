@@ -20,7 +20,7 @@ namespace HairdressingServices.Api.Models.Global.Services
 
         public bool PseudoExists(string pseudo)
         {
-            Command command = new Command("HDP_PseudoExists", true);
+            Command command = new("HDP_PseudoExists", true);
             command.AddParameter("Pseudo", pseudo);
 
             int count = (int)_connection.ExecuteScalar(command);
@@ -30,7 +30,7 @@ namespace HairdressingServices.Api.Models.Global.Services
 
         public bool EmailExists(string email)
         {
-            Command command = new Command("HDP_EmailExists", true);
+            Command command = new("HDP_EmailExists", true);
             command.AddParameter("Email", email);
 
             int count = (int)_connection.ExecuteScalar(command);
@@ -40,7 +40,7 @@ namespace HairdressingServices.Api.Models.Global.Services
 
         public User Get(int Id)
         {
-            Command command = new Command("HDP_GetUser", true);
+            Command command = new("HDP_GetUser", true);
             command.AddParameter("Id", Id);
 
             return _connection.ExecuteReader(command, dr => dr.ToUser()).SingleOrDefault();
@@ -48,39 +48,47 @@ namespace HairdressingServices.Api.Models.Global.Services
 
         public IEnumerable<User> GetAllUser()
         {
-            Command command = new Command("Select * FROM HDR_GetAllUser", false);
+            Command command = new("Select * FROM HDR_GetAllUser", false);
 
             return _connection.ExecuteReader(command, dr => dr.ToUser());
         }
 
-        public IEnumerable<User> GetAllUserType(int role)
+        public IEnumerable<User> GetAllProfessionnalUsersOrMemberUsers(int role)
         {
-            throw new NotImplementedException();
+            Command command = new Command("HDP_GetAllProfessionnalUsersOrMemberUsers", true);
+            command.AddParameter("Role", role);
+
+            return _connection.ExecuteReader(command, dr => dr.ToUser());
         }
 
         public User GetUserByEmail(string email)
         {
-            throw new NotImplementedException();
+            Command command = new("HDP_EmailExists", true);
+            command.AddParameter("Email", email);
+
+            return _connection.ExecuteReader(command, dr => dr.ToUser()).FirstOrDefault();
         }
 
         public User GetUserByFirstnameAndLastName(string firstname, string lastname)
         {
-            throw new NotImplementedException();
-        }
+            Command command = new("HDP_GetUserByFirstnameAndLastname", true);
+            command.AddParameter("Firstname", firstname);
+            command.AddParameter("Lastname", lastname);
 
-        public IEnumerable<User> GetUserByProfessionnalCategory(int categoryId)
-        {
-            throw new NotImplementedException();
+            return _connection.ExecuteReader(command, dr => dr.ToUser()).FirstOrDefault();
         }
 
         public User GetUserByPseudo(string pseudo)
         {
-            throw new NotImplementedException();
+            Command command = new("HDP_PseudoExists", true);
+            command.AddParameter("Pseudo", pseudo);
+
+            return _connection.ExecuteReader(command, dr => dr.ToUser()).FirstOrDefault();
         }
 
         public User Login(string emailOrPseudo, string passwd)
         {
-            Command command = new Command("HDP_AuthUser", true);
+            Command command = new("HDP_AuthUser", true);
             command.AddParameter("EmailOrPseudo", emailOrPseudo);
             command.AddParameter("Passwd", passwd);
 
@@ -91,7 +99,7 @@ namespace HairdressingServices.Api.Models.Global.Services
 
         public void Register(User user)
         {
-            Command command = new Command("HDP_RegisterUser", true);
+            Command command = new("HDP_RegisterUser", true);
             command.AddParameter("Lastname", user.Lastname);
             command.AddParameter("Firstname", user.Firstname);
             command.AddParameter("Pseudo", user.Pseudo);
@@ -109,7 +117,7 @@ namespace HairdressingServices.Api.Models.Global.Services
 
         public bool Update(int id, User user)
         {
-            Command command = new Command("HDP_UpdateUser", true);
+            Command command = new("HDP_UpdateUser", true);
             command.AddParameter("Lastname", user.Lastname);
             command.AddParameter("Firstname", user.Firstname);
             command.AddParameter("Pseudo", user.Pseudo);
@@ -127,11 +135,50 @@ namespace HairdressingServices.Api.Models.Global.Services
 
         public void Delete(int id)
         {
-            Command command = new Command("HDP_LockUser", true);
+            Command command = new("HDP_LockUser", true);
             command.AddParameter("Id", id);
 
             _connection.ExecuteNonQuery(command);
         }
 
+        public void ActiveUser(int id)
+        {
+            Command command = new("HDP_UnLockUser", true);
+            command.AddParameter("Id", id);
+
+            _connection.ExecuteNonQuery(command);
+        }
+
+        public IEnumerable<ProfessionnalCategory> AllProfessionnalCategoryOfUser(int id)
+        {
+            Command command = new("HDP_AllCategoryProfessionnalByUser", true);
+            command.AddParameter("Id", id);
+
+            return _connection.ExecuteReader(command, dr => dr.ToProfessionnalCategory());
+        }
+
+        public IEnumerable<Avis> GetAllAvisByProfessionnal(int Id)
+        {
+            Command command = new Command("HDP_GetAllAvisByProfessionnalUser", true);
+            command.AddParameter("ProfessionnalId", Id);
+
+            return _connection.ExecuteReader(command, dr => dr.ToAvis());
+        }
+
+        public int AverageStarsAvisByProfessionnal(int Id)
+        {
+            Command command = new Command("HDP_AverageStarsByProfessionnal", true);
+            command.AddParameter("Id", Id);
+
+            return (int)_connection.ExecuteScalar(command);
+        }
+
+        public int CountAvisByProfessionnal(int Id)
+        {
+            Command command = new Command("HDP_CountAvisByProfessionnal", true);
+            command.AddParameter("Id", Id);
+
+            return (int)_connection.ExecuteScalar(command);
+        }
     }
 }
