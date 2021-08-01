@@ -57,12 +57,12 @@ namespace HairdressingServices.Api.Models.Global.Services
 
         }
 
-        public void Update(Avis avis)
+        public void Update(int id, Avis avis)
         {
             Command command = new Command("HDP_UpdateAvis", true);
             command.AddParameter("Content", avis.Content);
             command.AddParameter("Star", avis.Star);
-            command.AddParameter("Id", avis.Id);
+            command.AddParameter("Id", id);
 
             _connection.ExecuteNonQuery(command);
         }

@@ -43,8 +43,16 @@ namespace HairdressingServices.Api.Models.Global.Mappers
                 Passwd = null,
                 Role = (int)dataRecord["Role"],
                 BirthDate = (DateTime)dataRecord["BirthDate"],
-                IdProfessionnalCategory = (int)dataRecord["IdProfessionnalCategory"],
-                Status = (int)dataRecord["Status"]
+                Status = (bool)dataRecord["Status"]
+            };
+        }
+
+        public static UserCategoryProfessionnal ToUserCategoryProfessionnal(this IDataRecord dataRecord)
+        {
+            return new UserCategoryProfessionnal()
+            {
+                IdUser = (int)dataRecord["IdUser"],
+                IdProfessionnalCategory = (int)dataRecord["IdProfessionnalCategory"]
             };
         }
 

@@ -12,7 +12,7 @@ namespace HairdressingServices.Api.Models.Global.Repositories
         Avis Get(int id);
         IEnumerable<Avis> GetAllAvisByProfessionnal(int professionnalId);
         void Insert(Avis avis);
-        void Update(Avis avis);
+        void Update(int id, Avis avis);
         IEnumerable<Comment> GetAllCommentByAvis(int id);
 
     }

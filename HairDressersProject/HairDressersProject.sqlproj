@@ -118,6 +118,8 @@
     <Build Include="stored procedure\User\HDP_CountAvisByProfessionnal.sql" />
     <Build Include="stored procedure\Comment\HDP_RemoveComment.sql" />
     <Build Include="stored procedure\Comment\HDP_UserByCommentId.sql" />
+    <Build Include="stored procedure\UserCategoryProfessionnal\HDP_AddUserCategoryProfessionnal.sql" />
+    <Build Include="stored procedure\UserCategoryProfessionnal\HDP_DeleteUserCategoryProfessionnal.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="HairDressersProject.refactorlog" />

@@ -86,10 +86,10 @@ namespace HairdressingServices.Api.Models.Global.Services
             return _connection.ExecuteReader(command, dr => dr.ToUser()).FirstOrDefault();
         }
 
-        public User Login(string emailOrPseudo, string passwd)
+        public User Login(string Email, string passwd)
         {
             Command command = new("HDP_AuthUser", true);
-            command.AddParameter("EmailOrPseudo", emailOrPseudo);
+            command.AddParameter("Email", Email);
             command.AddParameter("Passwd", passwd);
 
             return _connection.ExecuteReader(command, dr => dr.ToUser()).SingleOrDefault();
@@ -107,7 +107,6 @@ namespace HairdressingServices.Api.Models.Global.Services
             command.AddParameter("Passwd", user.Passwd);
             command.AddParameter("BirthDate", user.BirthDate);
             command.AddParameter("Role", user.Role);
-            command.AddParameter("IdProfessionnalCategory", user.IdProfessionnalCategory);
             command.AddParameter("Status", user.Status);
 
             _connection.ExecuteNonQuery(command);
@@ -124,7 +123,6 @@ namespace HairdressingServices.Api.Models.Global.Services
             command.AddParameter("Email", user.Email);
             command.AddParameter("Passwd", user.Passwd);
             command.AddParameter("BirthDate", user.BirthDate);
-            command.AddParameter("IdProfessionnalCategory", user.IdProfessionnalCategory);
             command.AddParameter("Status", user.Status);
 
             int result =_connection.ExecuteNonQuery(command);

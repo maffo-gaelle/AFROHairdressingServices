@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="3.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HairDressingServices.Api.Models.Client\HairDressingServices.Api.Models.Client.csproj" />
+    <ProjectReference Include="..\HairdressingServices.Api.Models.Global\HairdressingServices.Api.Models.Global.csproj" />
+    <ProjectReference Include="..\HairdressingServices.Tools\HairdressingServices.Tools.csproj" />
+  </ItemGroup>
+
+</Project>

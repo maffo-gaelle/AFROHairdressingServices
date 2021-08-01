@@ -29,7 +29,7 @@ namespace HairdressingServices.Api.Models.Global.Services
 
         public IEnumerable<ProfessionnalCategory> GetAll()
         {
-            Command command = new Command("HDP_AllProfessionnalCategories", false);
+            Command command = new Command("Select * from HDP_AllProfessionnalCategories", false);
 
             return _connection.ExecuteReader(command, dr => dr.ToProfessionnalCategory());
         }
@@ -50,9 +50,8 @@ namespace HairdressingServices.Api.Models.Global.Services
             _connection.ExecuteNonQuery(command);
         }
 
-        public void Update(ProfessionnalCategory category)
+        public void Update(int Id, ProfessionnalCategory category)
         {
-            int Id = category.Id;
             string Name = category.NameCategory;
             Command command = new Command("HDP_UpdateProfessionnalCategory", true);
             command.AddParameter("Id", Id);

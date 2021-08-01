@@ -2,6 +2,6 @@
 	@Id int
 AS
 BEGIN
-	SELECT [Id], [Content], [Star], [UserIdProfessionnal], [UserIdMember], [Timestamp] FROM AVIS WHERE [Id] = @Id
+	SELECT a.Id, a.Content, a.Star, a.UserIdProfessionnal, a.UserIdMember, a.Timestamp FROM AVIS a WHERE [Id] = @Id
 	RETURN 0
 END

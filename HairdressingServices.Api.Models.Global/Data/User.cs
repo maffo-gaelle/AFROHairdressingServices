@@ -16,7 +16,6 @@ namespace HairdressingServices.Api.Models.Global.Data
         public string Passwd { get; set; }
         public int Role { get; set; }
         public DateTime BirthDate { get; set; }
-        public int IdProfessionnalCategory { get; set; }
-        public int Status { get; set; }
+        public bool Status { get; set; }
     }
 }
