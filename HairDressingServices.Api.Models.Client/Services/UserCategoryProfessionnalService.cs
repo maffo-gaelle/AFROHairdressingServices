@@ -24,9 +24,9 @@ namespace HairDressingServices.Api.Models.Client.Services
             _userCategoryProfessionnal.Add(userCategoryProfessionnal.ToGlobal());
         }
 
-        public void delete(UserCategoryProfessionnal userCategoryProfessionnal)
+        public void delete(int userId, int id)
         {
-            _userCategoryProfessionnal.delete(userCategoryProfessionnal.ToGlobal());
+            _userCategoryProfessionnal.delete(userId, id);
         }
 
         public ProfessionnalCategory GetProfessionnalCategoryNameById(int IdProfessionnalCategory)

@@ -24,9 +24,9 @@ namespace AFROHairdressingServices.Security.API.Controllers
 
         // GET: api/<CommentController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Comment> GetComments(int id)
         {
-            return new string[] { "value1", "value2" };
+            return _commentRepository.GetCommentByAvis(id);
         }
 
         // GET api/<CommentController>/5
@@ -35,6 +35,13 @@ namespace AFROHairdressingServices.Security.API.Controllers
         {
             return _commentRepository.Get(id);
         }
+
+        // GET api/<CommentController>/5
+        //[HttpGet("GetMember/{id}")]
+        //public Comment GetMember(int id)
+        //{
+        //    return _commentRepository.GetUserComment()
+        //}
 
         // POST api/<CommentController>
         [HttpPost]

@@ -69,7 +69,7 @@ namespace AFROHairdressingServices.Security.API.Controllers
             return _authRepository.GetAllProfessionnalUsersOrMemberUsers(role);
         }
 
-        [HttpGet("All/{id}")]
+        [HttpGet("All")]
         public IEnumerable<User> GetAllUsers()
         {
             return _authRepository.GetAllUser();
@@ -89,5 +89,53 @@ namespace AFROHairdressingServices.Security.API.Controllers
         {
             _authRepository.Delete(id);
         }
+
+        [HttpGet("professionnalCategories/{id}")]
+        public IEnumerable<ProfessionnalCategory> GetAllProfessionnalCategoriesByUser(int id)
+        {
+            return _authRepository.AllProfessionnalCategoryOfUser(id);
+        }
+
+        [HttpGet("AllAvis/{id}")]
+        public IEnumerable<Avis> GetAllAvisByProfessionnal(int id)
+        {
+            return _authRepository.GetAllAvisByProfessionnal(id);
+        }
+
+        // GET api/<UserController>/5
+        [HttpGet("Average/{id}")]
+        public int Average(int id)
+        {
+            return _authRepository.AverageStarsAvisByProfessionnal(id);
+        }
+
+        // GET api/<UserController>/5
+        [HttpGet("countAvis/{id}")]
+        public int Count(int id)
+        {
+            return _authRepository.CountAvisByProfessionnal(id);
+        }
+
+        // GET api/<UserController>/5
+        [HttpGet("EmailExists/{email}")]
+        public bool EmailExists(string email)
+        {
+            return _authRepository.EmailExists(email);
+        }
+
+        // GET api/<UserController>/5
+        [HttpGet("pseudoExists/{pseudo}")]
+        public bool PseudoExists(string pseudo)
+        {
+            return _authRepository.PseudoExists(pseudo);
+        }
+
+        // GET api/<UserController>/5
+        [HttpGet("userByPseudo/{pseudo}")]
+        public User GetUserByPseudo(string pseudo)
+        {
+            return _authRepository.GetUserByPseudo(pseudo);
+        }
+
     }
 }

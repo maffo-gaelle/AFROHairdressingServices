@@ -1,11 +1,11 @@
-﻿using HairDressingServices.Api.Models.Client.Data;
+﻿using HairdressingServices.MVC.Global.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HairDressingServices.Api.Models.Client.Repositories
+namespace HairdressingServices.MVC.Global.Repositories
 {
     public interface IUserCategoryProfessionnalRepository
     {

@@ -10,7 +10,7 @@ namespace HairdressingServices.Api.Models.Global.Repositories
     public interface IUserCategoryProfessionnalRepository
     {
         void Add(UserCategoryProfessionnal userCategoryProfessionnal);
-        void delete(UserCategoryProfessionnal userCategoryProfessionnal);
+        void delete(int userId, int id);
         IEnumerable<User> GetUsersByProfessionnalCategory(int IdProfessionnalCategory);
         ProfessionnalCategory GetProfessionnalCategoryNameById(int IdProfessionnalCategory);
     }

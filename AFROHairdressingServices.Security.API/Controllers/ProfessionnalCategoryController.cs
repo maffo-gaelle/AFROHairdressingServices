@@ -56,5 +56,19 @@ namespace AFROHairdressingServices.Security.API.Controllers
         {
             _professionnalCategoryRepository.Delete(id);
         }
+
+        [HttpGet("GetUsers/{id}")]
+        public IEnumerable<User> GetUsersByProfessionnalCategory(int id)
+        {
+            return _professionnalCategoryRepository.GetUsersByProfessionnalCategory(id);
+        }
+
+        [HttpGet("{name}")]
+        public ProfessionnalCategory Get(string name)
+        {
+            return _professionnalCategoryRepository.GetProfessionnalCategoryByName(name);
+        }
+
+
     }
 }

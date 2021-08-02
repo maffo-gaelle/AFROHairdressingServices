@@ -26,11 +26,11 @@ namespace HairdressingServices.Api.Models.Global.Services
             _connection.ExecuteNonQuery(command);
         }
 
-        public void delete(UserCategoryProfessionnal userCategoryProfessionnal)
+        public void delete(int userId, int id)
         {
             Command command = new Command("HDP_DeleteUserCategoryProfessionnal", true);
-            command.AddParameter("UserId", userCategoryProfessionnal.IdUser);
-            command.AddParameter("IdProfessionnalCategory", userCategoryProfessionnal.IdProfessionnalCategory);
+            command.AddParameter("UserId", userId);
+            command.AddParameter("IdProfessionnalCategory", id);
 
             _connection.ExecuteNonQuery(command); 
         }
