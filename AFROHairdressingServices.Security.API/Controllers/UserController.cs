@@ -64,9 +64,9 @@ namespace AFROHairdressingServices.Security.API.Controllers
         }
 
         [HttpGet("ByRole/{id}")]
-        public IEnumerable<User> GetUsersByRole(int role)
+        public IEnumerable<User> GetUsersByRole(int id)
         {
-            return _authRepository.GetAllProfessionnalUsersOrMemberUsers(role);
+            return _authRepository.GetAllProfessionnalUsersOrMemberUsers(id);
         }
 
         [HttpGet("All")]

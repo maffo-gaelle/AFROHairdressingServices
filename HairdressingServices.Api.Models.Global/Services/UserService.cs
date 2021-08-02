@@ -80,7 +80,7 @@ namespace HairdressingServices.Api.Models.Global.Services
 
         public User GetUserByPseudo(string pseudo)
         {
-            Command command = new("HDP_PseudoExists", true);
+            Command command = new("HDP_GetUserByPseudo", true);
             command.AddParameter("Pseudo", pseudo);
 
             return _connection.ExecuteReader(command, dr => dr.ToUser()).FirstOrDefault();

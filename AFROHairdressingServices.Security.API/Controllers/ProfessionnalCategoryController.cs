@@ -63,7 +63,7 @@ namespace AFROHairdressingServices.Security.API.Controllers
             return _professionnalCategoryRepository.GetUsersByProfessionnalCategory(id);
         }
 
-        [HttpGet("{name}")]
+        [HttpGet("byName/{name}")]
         public ProfessionnalCategory Get(string name)
         {
             return _professionnalCategoryRepository.GetProfessionnalCategoryByName(name);

@@ -57,7 +57,7 @@ namespace HairdressingServices.MVC.Global.Services
 
         public ProfessionnalCategory GetProfessionnalCategoryByName(string name)
         {
-            HttpResponseMessage httpResponseMessage = _httpClient.GetAsync($"api/ProfessionnalCategory/{name}").Result;
+            HttpResponseMessage httpResponseMessage = _httpClient.GetAsync($"api/ProfessionnalCategory/byName/{name}").Result;
             httpResponseMessage.EnsureSuccessStatusCode();
             string json = httpResponseMessage.Content.ReadAsStringAsync().Result;
 

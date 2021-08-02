@@ -120,6 +120,7 @@
     <Build Include="stored procedure\Comment\HDP_UserByCommentId.sql" />
     <Build Include="stored procedure\UserCategoryProfessionnal\HDP_AddUserCategoryProfessionnal.sql" />
     <Build Include="stored procedure\UserCategoryProfessionnal\HDP_DeleteUserCategoryProfessionnal.sql" />
+    <Build Include="stored procedure\User\HDP_GetUserByPseudo.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="HairDressersProject.refactorlog" />

@@ -9,7 +9,7 @@ namespace HairdressingServices.MVC.Global.Repositories
 {
     public interface IAuthRepository
     {
-        User Login(string emailOrPseudo, string passwd);
+        User Login(string email, string passwd);
         void Register(User user);
         bool EmailExists(string email);
         bool PseudoExists(string pseudo);

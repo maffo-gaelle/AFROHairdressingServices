@@ -9,8 +9,6 @@ namespace HairDressingServices.Api.Models.Client.Data
     public enum Role { Admin = 0, Member = 1, Professionnal = 2 }
     public class User
     {
-        //private Role role;
-
         public int Id { get; private  set; }
         public string Lastname { get; set; }
         public string Firstname { get; set; }

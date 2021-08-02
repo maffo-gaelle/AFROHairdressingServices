@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace HairdressingServices.MVC.Global.Services
 {
-    class UserCategoryProfessionnalService : IUserCategoryProfessionnalRepository
+    public class UserCategoryProfessionnalService : IUserCategoryProfessionnalRepository
     {
         private readonly HttpClient _httpClient;
 
