@@ -49,8 +49,8 @@ namespace HairdressingServices.Api.Models.Global.Services
             Command command = new Command("HDP_AddAvis", true);
             command.AddParameter("Content", avis.Content);
             command.AddParameter("Star", avis.Star);
-            command.AddParameter("UserIdMember", avis.UserIdMember);
-            command.AddParameter("UserIdProfessionnal", avis.UserIdProfessionnal);
+            command.AddParameter("UserIdMember", avis.UserId);
+            command.AddParameter("UserIdProfessionnal", avis.PrestationId);
             command.AddParameter("Timestamp", avis.Timestamp);
 
             _connection.ExecuteNonQuery(command);

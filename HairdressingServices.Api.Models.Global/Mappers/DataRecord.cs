@@ -24,6 +24,23 @@ namespace HairdressingServices.Api.Models.Global.Mappers
             };
         }
 
+        internal static Locality ToLocality(this IDataRecord dataRecord)
+        {
+            return new Locality()
+            {
+                CodePostal = (string)dataRecord["CodePostal"],
+                Ville = (string)dataRecord["Ville"]
+            };
+        }
+
+        internal static UserLocality ToUserLocality(this IDataRecord dataRecord)
+        {
+            return new UserLocality()
+            {
+                CodePostal = (string)dataRecord["CodePostal"],
+                UserId = (int)dataRecord["UserId"]
+            };
+        }
 
         /// <summary>
         /// 
@@ -35,14 +52,15 @@ namespace HairdressingServices.Api.Models.Global.Mappers
             return new User()
             {
                 Id = (int)dataRecord["Id"],
-                Lastname = (string)dataRecord["Lastname"],
-                Firstname = (string)dataRecord["Firstname"],
+                Lastname = dataRecord["Lastname"] is DBNull ? null : (string)dataRecord["Lastname"],
+                Firstname = dataRecord["Firstname"] is DBNull ? null : (string)dataRecord["Firstname"],
                 Pseudo = (string)dataRecord["Pseudo"],
                 Email = (string)dataRecord["Email"],
                 //On ne renvoie jamais un mot de passe d'une base de données
                 Passwd = null,
                 Role = (int)dataRecord["Role"],
-                BirthDate = (DateTime)dataRecord["BirthDate"],
+                BirthDate = dataRecord["BirthDate"]  is DBNull ? null :  (DateTime)dataRecord["BirthDate"],
+                Description = dataRecord["Description"] is DBNull ? null : (string)dataRecord["Description"],
                 Status = (bool)dataRecord["Status"]
             };
         }
@@ -68,8 +86,8 @@ namespace HairdressingServices.Api.Models.Global.Mappers
                 Id = (int)dataRecord["Id"],
                 Content = (string)dataRecord["Content"],
                 Star = (int)dataRecord["Star"],
-                UserIdProfessionnal = (int)dataRecord["UserIdProfessionnal"],
-                UserIdMember = (int)dataRecord["UserIdMember"],
+                UserId = (int)dataRecord["UserId"],
+                PrestationId = (int)dataRecord["PrestationId"],
                 Timestamp = (DateTime)dataRecord["Timestamp"]
 
             };

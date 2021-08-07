@@ -26,32 +26,68 @@ namespace AFROHairdressingServices.Security.API.Controllers
         }
 
         // GET: api/<UserController>
-        [HttpPost("Login")]
-        public IActionResult Login([FromBody] LoginForm form)
+        [HttpPost("Login/Client")]
+        public IActionResult LoginClient([FromBody] LoginForm form)
         {
             User user = _authRepository.Login(form.Email, form.Passwd);
 
             if (user is null)
                 return Unauthorized(new { Error = "Email ou mot de passe invalide!" });
 
-            user.Token = _tokenRepository.GenerateToken(new TokenUser() 
-            { 
-                Id = user.Id, 
-                Lastname = user.Lastname, 
-                Firstname = user.Firstname, 
-                Pseudo = user.Pseudo,
-                Email = user.Email,
-                Role = user.Role,
-                BirthDate = user.BirthDate,
-            });
+            if (user.IsClient)
+            {
+                user.Token = _tokenRepository.GenerateToken(new TokenUser()
+                {
+                    Id = user.Id,
+                    Lastname = user.Lastname,
+                    Firstname = user.Firstname,
+                    Pseudo = user.Pseudo,
+                    Email = user.Email,
+                    Role = user.Role,
+                    BirthDate = user.BirthDate,
+                });
+            }
 
             return Ok(user);
         }
 
-        [HttpPost("Register")]
-        public IActionResult Register([FromBody] RegisterForm form)
+        // GET: api/<UserController>
+        [HttpPost("Login/Professionnal")]
+        public IActionResult LoginProfessionnal([FromBody] LoginForm form)
         {
-            _authRepository.Register(new User(form.Lastname, form.Firstname, form.Pseudo, form.Email, form.Passwd, form.Role, form.BirthDate));
+            User user = _authRepository.Login(form.Email, form.Passwd);
+
+            if (user is null)
+                return Unauthorized(new { Error = "Email ou mot de passe invalide!" });
+            if (user.IsProfessionnal)
+            {
+                user.Token = _tokenRepository.GenerateToken(new TokenUser()
+                {
+                    Id = user.Id,
+                    Lastname = user.Lastname,
+                    Firstname = user.Firstname,
+                    Pseudo = user.Pseudo,
+                    Email = user.Email,
+                    Role = user.Role,
+                    BirthDate = user.BirthDate,
+                });
+            }
+
+            return Ok(user);
+        }
+
+        [HttpPost("RegisterProfessionnal")]
+        public IActionResult RegisterProfessionnal([FromBody] RegisterProfessionnalForm form)
+        {
+            _authRepository.Register(new User(form.Lastname, form.Firstname, form.Pseudo, form.Email, form.Passwd, form.Role, form.BirthDate, form.Description));
+
+            return NoContent();
+        }
+
+        [HttpPost("RegisterMember")]
+        public IActionResult RegisterMember([FromBody] RegisterMemberForm form)
+        {
+            _authRepository.Register(new User(form.Lastname, form.Firstname, form.Pseudo, form.Email, form.Passwd, form.Role, form.BirthDate, form.Description));
 
             return NoContent();
         }
@@ -79,7 +115,7 @@ namespace AFROHairdressingServices.Security.API.Controllers
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] UpdateUserForm form)
         {
-            _authRepository.Update(id, new User(form.Lastname, form.Firstname, form.Pseudo, form.Email, form.Passwd, form.Role, form.BirthDate));
+            _authRepository.Update(id, new User(form.Lastname, form.Firstname, form.Pseudo, form.Email, form.Passwd, form.Role, form.BirthDate, form.Description));
 
         }
 

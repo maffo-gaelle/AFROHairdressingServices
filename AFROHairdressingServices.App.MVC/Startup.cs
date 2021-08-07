@@ -66,6 +66,7 @@ namespace AFROHairdressingServices.App.MVC
             services.AddScoped<ICommentRepository, CommentService>();
             services.AddScoped<IAvisRepository, AvisService>();
             services.AddScoped<IUserCategoryProfessionnalRepository, UserCategoryProfessionnalService>();
+            //services.AddScoped<ILocalityRepository, UserCategoryProfessionnalService>();
             services.AddScoped<ISessionManager, SessionManager>();
 
         }

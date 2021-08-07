@@ -11,8 +11,8 @@ namespace HairdressingServices.MVC.Global.Data
         public int Id { get; set; }
         public string Content { get; set; }
         public int Star { get; set; }
-        public int UserIdProfessionnal { get; set; }
-        public int UserIdMember { get; set; }
+        public int UserId { get; set; }
+        public int PrestationId { get; set; }
         public DateTime Timestamp { get; set; }
     }
 }

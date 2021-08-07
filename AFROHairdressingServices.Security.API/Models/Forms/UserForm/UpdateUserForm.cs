@@ -29,5 +29,6 @@ namespace AFROHairdressingServices.Security.API.Models.Forms.UserForm
         public DateTime BirthDate { get; set; }
 
         public Role Role { get; set; }
+        public string Description { get; set; }
     }
 }

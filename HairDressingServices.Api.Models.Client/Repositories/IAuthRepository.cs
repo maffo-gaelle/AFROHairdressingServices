@@ -10,7 +10,7 @@ namespace HairDressingServices.Api.Models.Client.Repositories
     public interface IAuthRepository
     {
         User Login(string emailOrPseudo, string passwd);
-        void Register(User user);
+        int Register(User user);
         bool EmailExists(string email);
         bool PseudoExists(string pseudo);
         User Get(int Id);

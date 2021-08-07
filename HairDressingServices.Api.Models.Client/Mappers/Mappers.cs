@@ -10,6 +10,24 @@ namespace HairDressingServices.Api.Models.Client.Mappers
 {
     internal static class Mappers
     {
+        internal static GR.Locality ToGlobal(this Locality enttity)
+        {
+            return new GR.Locality()
+            {
+                CodePostal = enttity.CodePostal,
+                Ville = enttity.Ville
+            };
+        }
+
+        internal static Locality ToClient(this GR.Locality enttity)
+        {
+            return new Locality
+            (
+                enttity.CodePostal,
+                enttity.Ville
+            );
+        }
+
         internal static GR.User ToGlobal(this User entity)
         {
             return new GR.User()
@@ -22,6 +40,7 @@ namespace HairDressingServices.Api.Models.Client.Mappers
                 Passwd = entity.Passwd,
                 Role = (int)entity.Role,
                 BirthDate = entity.BirthDate,
+                Description = entity.Description,
                 Status = entity.Status
             };
         }
@@ -36,6 +55,7 @@ namespace HairDressingServices.Api.Models.Client.Mappers
                 entity.Email,
                 (Role)entity.Role,
                 entity.BirthDate,
+                entity.Description,
                 entity.Status
             );
         }
@@ -54,21 +74,46 @@ namespace HairDressingServices.Api.Models.Client.Mappers
             return new ProfessionnalCategory(entity.Id, entity.NameCategory);
         }
 
+        internal static GR.UserLocality ToGlobal(this UserLocality enttity)
+        {
+            return new GR.UserLocality()
+            {
+                CodePostal = enttity.CodePostal,
+                UserId = enttity.UserId
+            };
+        }
+
+        internal static UserLocality ToClient(this GR.UserLocality enttity)
+        {
+            return new UserLocality
+            (
+                enttity.CodePostal,
+                enttity.UserId
+            );
+        }
+
         internal static GR.Avis ToGlobal(this Avis entity)
         {
             return new GR.Avis()
             {
+                Id = entity.Id,
                 Content = entity.Content,
                 Star = entity.Star,
                 Timestamp = entity.Timestamp,
-                UserIdMember = entity.UserIdMember,
-                UserIdProfessionnal = entity.UserIdProfessionnal
+                UserId = entity.UserId,
+                PrestationId = entity.PrestationId
             };
         }
 
         internal static Avis ToClient(this GR.Avis entity)
         {
-            return new Avis(entity.Id, entity.Content, entity.Star, entity.UserIdProfessionnal, entity.UserIdMember, entity.Timestamp);
+            return new Avis(
+                entity.Id, 
+                entity.Content, 
+                entity.Star, 
+                entity.UserId,
+                entity.PrestationId,
+                entity.Timestamp);
         }
 
         internal static GR.Comment ToGloblal(this Comment entity)

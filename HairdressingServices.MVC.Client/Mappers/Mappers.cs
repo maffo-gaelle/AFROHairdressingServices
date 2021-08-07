@@ -19,7 +19,8 @@ namespace HairdressingServices.MVC.Client.Mappers
                 entity.Pseudo, 
                 entity.Email, 
                 (Role)entity.Role, 
-                entity.BirthDate, 
+                entity.BirthDate,
+                entity.Description,
                 entity.Status, 
                 entity.Token
             );
@@ -62,8 +63,8 @@ namespace HairdressingServices.MVC.Client.Mappers
                 entity.Id,
                 entity.Content,
                 entity.Star,
-                entity.UserIdProfessionnal,
-                entity.UserIdMember,
+                entity.UserId,
+                entity.PrestationId,
                 entity.Timestamp
             );
         }
@@ -75,8 +76,8 @@ namespace HairdressingServices.MVC.Client.Mappers
                 Id = entity.Id,
                 Content = entity.Content,
                 Star = entity.Star,
-                UserIdProfessionnal = entity.UserIdProfessionnal,
-                UserIdMember = entity.UserIdMember,
+                UserId = entity.UserId,
+                PrestationId = entity.PrestationId,
                 Timestamp = entity.Timestamp
             };
         }

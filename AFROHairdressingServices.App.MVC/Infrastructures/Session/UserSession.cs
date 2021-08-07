@@ -14,8 +14,13 @@ namespace AFROHairdressingServices.App.MVC.Infrastructures.Session
         public string Pseudo { get; set; }
         public string Email { get; set; }
         public Role Role { get; set; }
-        public DateTime BirthDate { get; set; }
+        public DateTime? BirthDate { get; set; }
         public bool Status { get; set; }
         public string Token { get; set; }
+        public bool isAdmin { get => Role == Role.Admin; }
+        public bool isProfessionnal { get => Role == Role.Professionnal; }
+
+        public bool isUser { get => Role == Role.Member; }
+
     }
 }

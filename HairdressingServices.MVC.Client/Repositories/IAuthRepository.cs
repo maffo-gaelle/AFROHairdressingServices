@@ -9,8 +9,10 @@ namespace HairdressingServices.MVC.Client.Repositories
 {
     public interface IAuthRepository
     {
-        User Login(string email, string passwd);
-        void Register(User user);
+        User LoginClient(string email, string passwd);
+        User LoginProfessionnal(string email, string passwd);
+        User RegisterMember(User user);
+        User RegisterProfessionnal(User user);
         bool EmailExists(string email);
         bool PseudoExists(string pseudo);
         User Get(int Id);

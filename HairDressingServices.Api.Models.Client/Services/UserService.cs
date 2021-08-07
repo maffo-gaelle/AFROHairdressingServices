@@ -58,14 +58,14 @@ namespace HairDressingServices.Api.Models.Client.Services
             return _authRepository.PseudoExists(pseudo);
         }
 
-        public User Login(string emailOrPseudo, string passwd)
+        public User Login(string email, string passwd)
         {
-            return _authRepository.Login(emailOrPseudo, passwd)?.ToClient();
+            return _authRepository.Login(email, passwd)?.ToClient();
         }
 
-        public void Register(User user)
+        public int Register(User user)
         {
-            _authRepository.Register(user.ToGlobal());
+           return _authRepository.Register(user.ToGlobal());
         }
 
 

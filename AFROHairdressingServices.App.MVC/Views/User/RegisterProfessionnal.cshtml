@@ -1,0 +1,72 @@
+﻿@model AFROHairdressingServices.App.MVC.Models.Form.UserForm.RegisterProfessionnalForm
+
+@{
+    ViewData["Title"] = "RegisterProfessionnal";
+}
+
+<h1>RegisterProfessionnal</h1>
+
+<h4>RegisterProfessionnalForm</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="RegisterProfessionnal">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Lastname" class="control-label"></label>
+                <input asp-for="Lastname" class="form-control" />
+                <span asp-validation-for="Lastname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Firstname" class="control-label"></label>
+                <input asp-for="Firstname" class="form-control" />
+                <span asp-validation-for="Firstname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pseudo" class="control-label"></label>
+                <input asp-for="Pseudo" class="form-control" />
+                <span asp-validation-for="Pseudo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Passwd" class="control-label"></label>
+                <input asp-for="Passwd" class="form-control" />
+                <span asp-validation-for="Passwd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Confirm" class="control-label"></label>
+                <input asp-for="Confirm" class="form-control" />
+                <span asp-validation-for="Confirm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BirthDate" class="control-label"></label>
+                <input asp-for="BirthDate" class="form-control" />
+                <span asp-validation-for="BirthDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @foreach (SelectListItem selectListItem in Model.PersonnalCategories)
+                {
+                    <span class="form-group">
+                        <input id="@selectListItem.Value" type="checkbox" name="PersonnalCategories" value="@selectListItem.Value" checked="@selectListItem.Selected" />
+                        <label for="@selectListItem.Value">@selectListItem.Text</label>
+                    </span>
+                }
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -3,7 +3,7 @@
 	@Passwd VARCHAR(20)
 AS
 BEGIN
-	SELECT [Id], Lastname, Firstname, Pseudo, Email, [Role], BirthDate, [Status]
+	SELECT [Id], Lastname, Firstname, Pseudo, Email, [Role], BirthDate, [Status], [Description]
 	FROM [User] 
 	WHERE Email = @Email
 	AND Passwd = HASHBYTES('SHA2_512', dbo.HDP_GetPreSalt() + @Passwd + dbo.HDP_GetPostSalt())

@@ -2,6 +2,6 @@
 	@Id int
 AS
 BEGIN
-	SELECT [Id], Lastname, Firstname, Pseudo, Email, [Role], BirthDate, [Status] FROM [User] WHERE Id = @Id
+	SELECT [Id], Lastname, Firstname, Pseudo, Email, [Role], BirthDate, [Status], [Description] FROM [User] WHERE Id = @Id
 	RETURN 0
 END

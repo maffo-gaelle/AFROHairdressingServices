@@ -16,7 +16,7 @@ namespace HairdressingServices.MVC.Client.Data
             NameCategory = nameCategory;
         }
 
-        internal ProfessionnalCategory(int id, string nameCategory)
+        public ProfessionnalCategory(int id, string nameCategory)
             : this(nameCategory)
         {
             Id = id;

@@ -59,24 +59,24 @@
     <Folder Include="stored procedure" />
     <Folder Include="script" />
     <Folder Include="stored procedure\Avis" />
-    <Folder Include="stored procedure\CategoryPrestation" />
     <Folder Include="stored procedure\Image" />
     <Folder Include="stored procedure\Prestation" />
     <Folder Include="stored procedure\ProfessionnalCategory" />
-    <Folder Include="stored procedure\RDVCLientProfessionnal" />
     <Folder Include="stored procedure\User" />
     <Folder Include="fonctions scalaires" />
     <Folder Include="stored procedure\Comment" />
     <Folder Include="stored procedure\UserCategoryProfessionnal" />
+    <Folder Include="stored procedure\Locality" />
+    <Folder Include="stored procedure\UserLocality" />
+    <Folder Include="Triggers" />
+    <Folder Include="Triggers\UserProfessionnalCategory" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\ProfessionnalCategory.sql" />
     <Build Include="Tables\User.sql" />
     <Build Include="Tables\Avis.sql" />
     <Build Include="Tables\Image.sql" />
-    <Build Include="Tables\CategoryPrestation.sql" />
     <Build Include="Tables\Prestation.sql" />
-    <Build Include="Tables\RDVClientProfessionnel.sql" />
     <Build Include="Tables\Comment.sql" />
     <Build Include="Tables\Message.sql" />
     <Build Include="fonctions scalaires\HDP_GetPostSalt.sql" />
@@ -90,20 +90,17 @@
     <Build Include="stored procedure\Avis\HDP_DeleteAvis.sql" />
     <Build Include="stored procedure\Comment\HDP_AddComment.sql" />
     <Build Include="stored procedure\Comment\HDP_UpdateComment.sql" />
-    <Build Include="stored procedure\Avis\HDP_DeleteComment.sql" />
     <Build Include="stored procedure\User\HDP_AuthUser.sql" />
     <Build Include="stored procedure\User\HDP_LockUser.sql" />
     <Build Include="stored procedure\ProfessionnalCategory\HDP_UpdateProfessionnalCategory.sql" />
     <Build Include="stored procedure\ProfessionnalCategory\HDP_DeleteProfessionnalCategory.sql" />
     <Build Include="stored procedure\Image\HDP_DeleteImage.sql" />
     <Build Include="stored procedure\Image\HDP_AddImage.sql" />
-    <Build Include="stored procedure\User\HDP_ALLAvisAndCommentByProfessionnal.sql" />
     <Build Include="Views\HDR_ProfessionnalByCategory.sql" />
     <Build Include="stored procedure\User\HDP_EmailExists.sql" />
     <Build Include="stored procedure\User\HDP_PseudoExists.sql" />
     <Build Include="stored procedure\User\HDP_GetUser.sql" />
     <Build Include="Views\HDR_GetAllUser.sql" />
-    <Build Include="stored procedure\User\HDP_GetUserByFirstnameAndLastname.sql" />
     <Build Include="Tables\UserCategoryProfessionnal.sql" />
     <Build Include="stored procedure\UserCategoryProfessionnal\HDP_GetProfessionnalCategoryNameById.sql" />
     <Build Include="stored procedure\User\HDP_AllCategoryProfessionnalByUser.sql" />
@@ -121,6 +118,23 @@
     <Build Include="stored procedure\UserCategoryProfessionnal\HDP_AddUserCategoryProfessionnal.sql" />
     <Build Include="stored procedure\UserCategoryProfessionnal\HDP_DeleteUserCategoryProfessionnal.sql" />
     <Build Include="stored procedure\User\HDP_GetUserByPseudo.sql" />
+    <Build Include="Tables\Locality.sql" />
+    <Build Include="Tables\UserLocality.sql" />
+    <Build Include="Tables\RendezVous.sql" />
+    <Build Include="stored procedure\Prestation\HDP_ALLAvisAndCommentByProfessionnal.sql" />
+    <Build Include="stored procedure\Comment\HDP_DeleteComment.sql" />
+    <Build Include="stored procedure\Locality\HDP_AddLocality.sql" />
+    <Build Include="stored procedure\Locality\HDP_UpdateLocality.sql" />
+    <Build Include="stored procedure\Locality\HDP_DeleteLocality.sql" />
+    <Build Include="stored procedure\UserLocality\HDP_AddUserLocality.sql" />
+    <Build Include="stored procedure\UserLocality\HDP_DeleteUserLocality.sql" />
+    <Build Include="stored procedure\Locality\HDP_GetLocality.sql" />
+    <Build Include="stored procedure\Locality\HDP_GetAllLocalities.sql" />
+    <Build Include="stored procedure\Locality\HDP_GetAllLocalitiesByUser.sql" />
+    <Build Include="Triggers\UserProfessionnalCategory\CTR_AfterInsertUserProfessionnalCategory.sql" />
+    <Build Include="Triggers\UserProfessionnalCategory\OnDeleteUser.sql" />
+    <Build Include="Triggers\UserProfessionnalCategory\CTR_AfterInsertUserLocality.sql" />
+    <Build Include="stored procedure\Locality\HDP_LocalityExists.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="HairDressersProject.refactorlog" />

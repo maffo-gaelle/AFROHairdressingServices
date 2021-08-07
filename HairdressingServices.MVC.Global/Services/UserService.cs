@@ -126,15 +126,26 @@ namespace HairdressingServices.MVC.Global.Services
             return JsonSerializer.Deserialize<User>(json, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
         }
 
-        public User Login(string email, string passwd)
+        public User LoginClient(string email, string passwd)
         {
             string json = JsonSerializer.Serialize(new { email, passwd });
             HttpContent httpContent = new StringContent(json);
             httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-            HttpResponseMessage httpResponseMessage = _httpClient.PostAsync("api/user/login", httpContent).Result;
+            HttpResponseMessage httpResponseMessage = _httpClient.PostAsync("api/user/login/Client", httpContent).Result;
 
             return httpResponseMessage.IsSuccessStatusCode ? JsonSerializer.Deserialize<User>(httpResponseMessage.Content.ReadAsStringAsync().Result, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true }) : null;
         }
+
+        public User LoginProfessionnal(string email, string passwd)
+        {
+            string json = JsonSerializer.Serialize(new { email, passwd });
+            HttpContent httpContent = new StringContent(json);
+            httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            HttpResponseMessage httpResponseMessage = _httpClient.PostAsync("api/user/login/professionnal", httpContent).Result;
+
+            return httpResponseMessage.IsSuccessStatusCode ? JsonSerializer.Deserialize<User>(httpResponseMessage.Content.ReadAsStringAsync().Result, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true }) : null;
+        }
+
 
         public bool PseudoExists(string pseudo)
         {
@@ -145,14 +156,28 @@ namespace HairdressingServices.MVC.Global.Services
             return JsonSerializer.Deserialize<bool>(json, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
         }
 
-        public void Register(User user)
+        public User RegisterMember(User user)
         {
             string json = JsonSerializer.Serialize(user);
             HttpContent httpContent = new StringContent(json);
             httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-            HttpResponseMessage httpResponseMessage = _httpClient.PostAsync("api/user/register", httpContent).Result;
+            HttpResponseMessage httpResponseMessage = _httpClient.PostAsync("api/user/RegisterMember", httpContent).Result;
+            
+            httpResponseMessage.EnsureSuccessStatusCode();
+
+            return JsonSerializer.Deserialize<User>(json, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+        }
+        public User RegisterProfessionnal(User user)
+        {
+            string json = JsonSerializer.Serialize(user);
+            HttpContent httpContent = new StringContent(json);
+            httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            HttpResponseMessage httpResponseMessage = _httpClient.PostAsync("api/user/RegisterProfessionnal", httpContent).Result;
 
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            return JsonSerializer.Deserialize<User>(json, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+
         }
 
         public bool Update(int id, User user)
@@ -164,5 +189,10 @@ namespace HairdressingServices.MVC.Global.Services
             HttpResponseMessage httpResponseMessage = _httpClient.PutAsync($"api/user/{id}", httpContent).Result;
             return httpResponseMessage.IsSuccessStatusCode;
         }
+
+        //int IAuthRepository.RegisterProfessionnal(User user)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

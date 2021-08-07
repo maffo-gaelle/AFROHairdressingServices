@@ -72,23 +72,28 @@ namespace HairdressingServices.MVC.Client.Services
 
         public User GetUserByEmail(string email)
         {
-            return _authRepository.GetUserByEmail(email).ToClient();
+            return _authRepository.GetUserByEmail(email)?.ToClient();
         }
 
         public User GetUserByFirstnameAndLastName(string firstname, string lastname)
         {
-            return _authRepository.GetUserByFirstnameAndLastName(firstname, lastname).ToClient();
+            return _authRepository.GetUserByFirstnameAndLastName(firstname, lastname)?.ToClient();
         }
 
         public User GetUserByPseudo(string pseudo)
         {
-            return _authRepository.GetUserByPseudo(pseudo).ToClient();
+            return _authRepository.GetUserByPseudo(pseudo)?.ToClient();
         }
 
-        public User Login(string email, string passwd)
+        public User LoginClient(string email, string passwd)
         {
-            G.User user = _authRepository.Login(email, passwd);
+            G.User user = _authRepository.LoginClient(email, passwd);
             return user?.ToClient();
+        }
+
+        public User LoginProfessionnal(string email, string passwd)
+        {
+            return _authRepository.LoginProfessionnal(email, passwd)?.ToClient();
         }
 
         public bool PseudoExists(string pseudo)
@@ -96,14 +101,21 @@ namespace HairdressingServices.MVC.Client.Services
             return _authRepository.PseudoExists(pseudo);
         }
 
-        public void Register(User user)
+        public User RegisterMember(User user)
         {
-            _authRepository.Register(user.ToGlobal());
+            return _authRepository.RegisterMember(user?.ToGlobal())?.ToClient();
+        }
+
+        public User RegisterProfessionnal(User user)
+        {
+           return _authRepository.RegisterProfessionnal(user?.ToGlobal())?.ToClient();
         }
 
         public bool Update(int id, User user)
         {
-            return _authRepository.Update(id, user.ToGlobal());
+            return _authRepository.Update(id, user?.ToGlobal());
         }
+
+
     }
 }

@@ -2,6 +2,6 @@
 	@pseudo VARCHAR(50)
 AS
 BEGIN
-	SELECT [Id], Lastname, Firstname, Pseudo, Email, [Role], BirthDate, [Status] FROM [User] WHERE Pseudo = @pseudo
+	SELECT [Id], Lastname, Firstname, Pseudo, Email, [Role], BirthDate, [Status], [Description] FROM [User] WHERE Pseudo = @pseudo
 	RETURN 0
 END

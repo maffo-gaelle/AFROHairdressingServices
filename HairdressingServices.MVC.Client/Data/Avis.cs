@@ -11,21 +11,21 @@ namespace HairdressingServices.MVC.Client.Data
         public int Id { get; set; }
         public string Content { get; set; }
         public int Star { get; set; }
-        public int UserIdProfessionnal { get; set; }
-        public int UserIdMember { get; set; }
+        public int UserId { get; set; }
+        public int PrestationId { get; set; }
         public DateTime Timestamp { get; set; }
 
-        public Avis(string content, int star, int userIdProfessionnal, int userIdMember, DateTime timestamp)
+        public Avis(string content, int star, int userId, int prestationId, DateTime timestamp)
         {
             Content = content;
             Star = star;
-            UserIdProfessionnal = userIdProfessionnal;
-            UserIdMember = userIdMember;
+            UserId = userId;
+            PrestationId = prestationId;
             Timestamp = timestamp;
         }
 
-        public Avis(int id, string content, int star, int userIdProfessionnal, int userIdMember, DateTime timestamp)
-            : this(content, star, userIdProfessionnal, userIdMember, timestamp)
+        public Avis(int id, string content, int star, int userId, int prestationId, DateTime timestamp)
+            : this(content, star, userId, prestationId, timestamp)
         {
             Id = id;
         }

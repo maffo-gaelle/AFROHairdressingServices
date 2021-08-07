@@ -8,12 +8,10 @@ using System.Threading.Tasks;
 
 namespace AFROHairdressingServices.Security.API.Models.Forms.UserForm
 {
-    public class RegisterForm
+    public class RegisterMemberForm
     {
-        [Required]
         [MaxLength(50)]
         public string Lastname { get; set; }
-        [Required]
         [MaxLength(50)]
         public string Firstname { get; set; }
         [Required]
@@ -26,13 +24,11 @@ namespace AFROHairdressingServices.Security.API.Models.Forms.UserForm
         public string Email { get; set; }
         [Required]
         [MaxLength(20)]
-        //[RegularExpression(@"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-=]).{8,20}$")]
         public string Passwd { get; set; }
         [Required]
         public Role Role { get; set; } = Role.Member;
-        public DateTime BirthDate { get; set; }
-
-
+        public DateTime? BirthDate { get; set; }
+        public string Description { get; set; }
 
     }
 }

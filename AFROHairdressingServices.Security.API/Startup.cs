@@ -39,11 +39,15 @@ namespace AFROHairdressingServices.Security.API
             services.AddSingleton<GR.ICommentRepository, GS.CommentService>();
             services.AddSingleton<GR.IAvisRepository, GS.AvisService>();
             services.AddSingleton<GR.IUserCategoryProfessionnalRepository, GS.UserCategoryProfessionnalService>();
+            services.AddSingleton<GR.ILocalityRepository, GS.LocalityService>();
+            services.AddSingleton<GR.IUserLocalityRepository, GS.UserLocalityService>();
             services.AddSingleton<IAuthRepository, UserService>();
             services.AddSingleton<IProfessionnalCategoryRepository, ProfessionnalCategoryService>();
             services.AddSingleton<ICommentRepository, CommentService>();
             services.AddSingleton<IAvisRepository, AvisService>();
             services.AddSingleton<IUserCategoryProfessionnalRepository, UserCategoryProfessionnalService>();
+            services.AddSingleton<ILocalityRepository, LocalityService>();
+            services.AddSingleton<IUserLocalityRepository, UserLocalityService>();
             services.AddSingleton<ITokenRepository, TokenService>();
             services.AddControllers();
             services.AddSwaggerGen(c =>

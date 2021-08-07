@@ -15,4 +15,8 @@
     <ProjectReference Include="..\HairdressingServices.Tools\HairdressingServices.Tools.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Infrastructures\Validation\UserLocality\" />
+  </ItemGroup>
+
 </Project>

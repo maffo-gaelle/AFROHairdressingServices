@@ -14,9 +14,9 @@ namespace AFROHairdressingServices.Security.API.Models.Forms.AvisForm
         [Required]
         public int Star { get; set; } = 1;
         [Required]
-        public int UserIdProfessionnal { get; set; }
+        public int UserId { get; set; }
         [Required]
-        public int UserIdMember { get; set; }
+        public int PrestationId { get; set; }
         [Required]
         public DateTime Timestamp { get; set; }
     }

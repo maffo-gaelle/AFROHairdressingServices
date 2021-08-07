@@ -48,14 +48,14 @@ namespace AFROHairdressingServices.Security.API.Controllers
         [HttpPost]
         public void Post([FromBody] AddAvisForm form)
         {
-            _avisRepository.Insert(new Avis(form.Content, form.Star, form.UserIdProfessionnal, form.UserIdMember, form.Timestamp));
+            _avisRepository.Insert(new Avis(form.Content, form.Star, form.UserId, form.PrestationId, form.Timestamp));
         }
 
         // PUT api/<AvisController>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] UpdateAvisForm form)
         {
-            _avisRepository.Update(id, new Avis(form.Content, form.Star, form.UserIdProfessionnal, form.UserIdMember, form.Timestamp ));
+            _avisRepository.Update(id, new Avis(form.Content, form.Star, form.UserId, form.PrestationId, form.Timestamp ));
         }
 
         // DELETE api/<AvisController>/5

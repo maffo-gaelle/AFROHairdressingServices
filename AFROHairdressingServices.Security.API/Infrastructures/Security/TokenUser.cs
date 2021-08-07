@@ -14,7 +14,7 @@ namespace AFROHairdressingServices.Security.API.Infrastructures.Security
         public string Pseudo { get; set; }
         public string Email { get; set; }
         public Role Role { get; set; }
-        public DateTime BirthDate { get; set; }
+        public DateTime? BirthDate { get; set; }
         public int IdProfessionnalCategory { get; set; }
         public bool Status { get; set; }
     }

@@ -37,9 +37,9 @@ namespace AFROHairdressingServices.Security.API.Controllers
 
         // POST api/<UserCategoryProfessionnalController>
         [HttpPost]
-        public void Post(UserCategoryProfessionnal userCategory)
+        public void Post(UserCategoryProfessionnal userCategoryProfessionnal)
         {
-            _userCategoryProfessionnal.Add(userCategory);
+            _userCategoryProfessionnal.Add(userCategoryProfessionnal);
         }
 
 

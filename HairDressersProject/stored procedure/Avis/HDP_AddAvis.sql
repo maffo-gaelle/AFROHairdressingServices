@@ -1,9 +1,9 @@
 ﻿CREATE PROCEDURE [dbo].[HDP_AddAvis]
 	@Content VARCHAR(380),
 	@Star int,
-	@UserIdProfessionnal int,
-	@UserIdMember int,
-	@Timestamp datetime2(7)
+	@PrestationId int,
+	@UserId int,
+	@Timestamp datetime
 AS
-	INSERT INTO [Avis] (Content, Star, UserIdProfessionnal, UserIdMember, [Timestamp]) VALUES (@Content, @Star, @UserIdProfessionnal, @UserIdMember, @Timestamp)
+	INSERT INTO [Avis] (Content, Star, UserId, PrestationId, [Timestamp]) VALUES (@Content, @Star, @PrestationId, @UserId, @Timestamp)
 GO

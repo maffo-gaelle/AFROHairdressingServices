@@ -52,7 +52,7 @@ namespace AFROHairdressingServices.Security.API.Infrastructures.Security
                         new Claim("Pseudo", user.Pseudo),
                         new Claim("Email", user.Email),
                         new Claim("Role", user.Role.ToString()),
-                        new Claim("BirthDate", user.BirthDate.ToString()),
+                        new Claim("BirthDate", user.BirthDate?.ToString()),
                         new Claim("IdProfessionnalCategory", user.IdProfessionnalCategory.ToString()),
                         new Claim("Status", user.Status.ToString()),
                     },

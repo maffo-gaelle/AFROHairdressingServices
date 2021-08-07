@@ -97,7 +97,7 @@ namespace HairdressingServices.Api.Models.Global.Services
 
 
 
-        public void Register(User user)
+        public int Register(User user)
         {
             Command command = new("HDP_RegisterUser", true);
             command.AddParameter("Lastname", user.Lastname);
@@ -107,11 +107,11 @@ namespace HairdressingServices.Api.Models.Global.Services
             command.AddParameter("Passwd", user.Passwd);
             command.AddParameter("BirthDate", user.BirthDate);
             command.AddParameter("Role", user.Role);
+            command.AddParameter("Description", user.Description);
             command.AddParameter("Status", user.Status);
 
-            _connection.ExecuteNonQuery(command);
-            user.Passwd = null;
-
+            //_connection.ExecuteNonQuery(command);
+            return  (int)_connection.ExecuteScalar(command);
         }
 
         public bool Update(int id, User user)
@@ -123,6 +123,7 @@ namespace HairdressingServices.Api.Models.Global.Services
             command.AddParameter("Email", user.Email);
             command.AddParameter("Passwd", user.Passwd);
             command.AddParameter("BirthDate", user.BirthDate);
+            command.AddParameter("BirthDate", user.Description);
             command.AddParameter("Status", user.Status);
 
             int result =_connection.ExecuteNonQuery(command);
